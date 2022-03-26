@@ -17,11 +17,7 @@ public class TestOne extends BaseTestClass {
         search
                 .search("Garden Museum")
                 .pikFirstSuggestion();
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        map.verifySuggestion("Garden Museum");
     }
 
 }

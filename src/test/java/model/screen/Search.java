@@ -12,7 +12,7 @@ public class Search extends Controller {
             "com.google.android.apps.maps:id/search_omnibox_edit_text");
 
     public void onDisplay() {
-        waitElement(SEARCH_EDIT_TEXT);
+        verifyItem(SEARCH_EDIT_TEXT);
     }
 
     public Search search(String text) {
@@ -20,13 +20,14 @@ public class Search extends Controller {
         return this;
     }
 
-    public Search pikFirstSuggestion(){
+    public Search pikFirstSuggestion() {
         MobileItem item = new MobileItem(
                 "First suggestion",
                 Locator.XPATH,
                 "//android.support.v7.widget.RecyclerView[@resource-id='com.google.android.apps.maps:id/typed_suggest_container']/\t\n" +
                         "android.widget.LinearLayout[1]");
         click(item);
+        new Map().onDisplay();
         return this;
     }
 

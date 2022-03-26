@@ -16,6 +16,11 @@ public class Map extends Controller {
             Locator.ID,
             "com.google.android.apps.maps:id/mylocation_button");
 
+    public Map onDisplay() {
+        verifyItem(SEARCH_FIELD);
+        return this;
+    }
+
     public Map setLondon() {
         setGeo(51.50, -0.118);
         click(LOCATION_BUTTON);
@@ -30,7 +35,12 @@ public class Map extends Controller {
     }
 
     public Map verifySuggestion(String placeName) {
-return this;
+        MobileItem item = new MobileItem(
+                "Suggestion: '" + placeName + "'",
+                Locator.XPATH,
+                "//android.widget.LinearLayout[@resource-id='com.google.android.apps.maps:id/business_place_card']//android.widget.TextView[contains(@content-desc, '" + placeName + "')]");
+        verifyItem(item);
+        return this;
     }
 
 }
