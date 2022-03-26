@@ -1,14 +1,21 @@
 package controller;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import model.base.MobileItem;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.html5.Location;
 import org.testng.Assert;
 
 import static controller.AppiumInstance.driver;
 
 public class Controller {
+
+    public void setGeo(double lat, double longitude) {
+        driver.setLocation(new Location(lat, longitude, 10));
+    }
 
     public MobileElement getElement(MobileItem mobileItem) {
         return driver.findElement(By.xpath(mobileItem.getLocatorBody()));
@@ -34,12 +41,21 @@ public class Controller {
         try {
             driver.findElement(item.getLocatorType(), item.getLocatorBody());
         } catch (NoSuchElementException e) {
-            Assert.fail("Element " + item.getName() + " not found.");
+            failAfterWaiting(item);
         }
     }
 
     protected void failAfterWaiting(MobileItem mobileitem) {
         Assert.fail("Element " + mobileitem.getName() + " not found.");
+    }
+
+    protected void getPermissionsGEO() {
+        try {
+            driver.findElement(By.id("com.android.permissioncontroller:id/permission_allow_foreground_only_button")).click();
+        } catch (NoSuchElementException e) {
+            Assert.fail("'PermissionAllow' button not found.");
+            e.printStackTrace();
+        }
     }
 
 }

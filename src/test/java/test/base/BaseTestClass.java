@@ -6,7 +6,6 @@ import model.screen.Search;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-
 public class BaseTestClass {
 
     private AppiumInstance instance;
@@ -23,6 +22,7 @@ public class BaseTestClass {
         instance = new AppiumInstance();
         instance.setup(osName);
         System.out.println(osName + " driver: ready");
+
     }
 
     @AfterTest
