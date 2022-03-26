@@ -1,6 +1,8 @@
 package model.base;
 
-
+/**
+ * Mobile item with all necessary fields for run tests and get messages.
+ */
 public class MobileItem {
 
     private final String name;

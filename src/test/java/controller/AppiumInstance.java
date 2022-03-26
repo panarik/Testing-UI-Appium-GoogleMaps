@@ -4,6 +4,8 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import model.base.Configs;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -12,8 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class AppiumInstance {
 
-    // can be replaced with ThreadLocal
-    static AndroidDriver<MobileElement> driver;
+    static AndroidDriver<MobileElement> driver; // can be replaced with ThreadLocal
 
     public void setup(String OS) {
         switch (OS) {
@@ -46,7 +47,6 @@ public class AppiumInstance {
     public void stop() {
         if (driver != null) {
             driver.quit();
-            System.out.println("Driver has shutdown.");
         }
     }
 

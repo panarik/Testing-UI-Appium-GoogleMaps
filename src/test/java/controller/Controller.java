@@ -1,6 +1,8 @@
 package controller;
 
 import model.base.MobileItem;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.html5.Location;
@@ -8,7 +10,12 @@ import org.testng.Assert;
 
 import static controller.AppiumInstance.driver;
 
+/**
+ * Controller class contains all methods with Android driver. Screens use Controller methods.
+ */
 public class Controller {
+
+    public static final Logger log = LogManager.getLogger(); // logger
 
     /**
      * Set GEO.

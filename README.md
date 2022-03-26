@@ -6,3 +6,5 @@
 
 ### Steps
 1. run Gradle task 'testAppium' or run test 'TestOne' manually.
+2. run Gradle task 'allureReport'
+3. run Gradle task 'allureServe'
