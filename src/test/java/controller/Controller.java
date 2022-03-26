@@ -60,8 +60,9 @@ public class Controller {
     protected void getPermissionsGEO() {
         try {
             driver.findElement(By.id("com.android.permissioncontroller:id/permission_allow_foreground_only_button")).click();
+            //ToDo: for different devices needs different locators.
         } catch (NoSuchElementException e) {
-            Assert.fail("'PermissionAllow' button not found.");
+            Assert.fail("'permissioncontroller allow' button not found.");
         }
     }
 
