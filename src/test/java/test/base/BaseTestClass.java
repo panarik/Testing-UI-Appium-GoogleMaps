@@ -2,6 +2,7 @@ package test.base;
 
 import controller.AppiumInstance;
 import model.screen.Map;
+import model.screen.Search;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -13,6 +14,7 @@ public class BaseTestClass {
     //Setup pages
     // Add only common pages. If page is a part of scenario do not create it.
     protected Map map = new Map();
+    protected Search search = new Search();
 
     @BeforeTest
     public void start() {

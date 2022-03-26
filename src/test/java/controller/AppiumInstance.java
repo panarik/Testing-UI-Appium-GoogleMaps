@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class AppiumInstance {
 
-    static ThreadLocal<Driver> controller = new ThreadLocal<>(); // Common driver.
+    static AndroidDriver<MobileElement> driver;
 
     public void setup(String OS) {
         switch (OS) {
@@ -29,12 +29,12 @@ public class AppiumInstance {
                 cap.setCapability("appActivity", "com.google.android.maps.MapsActivity");
                 try {
                     URL url = new URL("http://127.0.0.1:4723/wd/hub");
-                    controller.set(new Driver(new AndroidDriver<MobileElement>(url, cap)));
+                    driver = new AndroidDriver<>(url, cap);
                 } catch (
                         MalformedURLException e) {
                     e.printStackTrace();
                 }
-                controller.get().driver.manage().timeouts().implicitlyWait(Configs.GLOBAL_WAITING, TimeUnit.SECONDS);
+                driver.manage().timeouts().implicitlyWait(Configs.GLOBAL_WAITING, TimeUnit.SECONDS);
 
             }
 
@@ -45,8 +45,8 @@ public class AppiumInstance {
     }
 
     public void stop() {
-        if (controller.get().driver != null) {
-            controller.get().driver.quit();
+        if (driver != null) {
+            driver.quit();
             System.out.println("Driver has shutdown.");
         }
     }

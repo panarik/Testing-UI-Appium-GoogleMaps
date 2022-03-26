@@ -7,7 +7,8 @@ public class TestOne extends BaseTestClass {
 
     @Test
     public void SearchSomePlace() {
-        System.out.println("test");
+        map.goToSearch();
+        search.search("Text");
     }
 
 }
