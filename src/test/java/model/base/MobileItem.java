@@ -22,8 +22,8 @@ public class MobileItem {
     }
 
     public String getLocatorBody() {
+        //ToDo: with parameters can be return Android or iOS locator.
         return locatorBody;
     }
-
 
 }

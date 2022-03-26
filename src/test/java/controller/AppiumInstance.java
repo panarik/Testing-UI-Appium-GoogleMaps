@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class AppiumInstance {
 
+    // can be replaced with ThreadLocal
     static AndroidDriver<MobileElement> driver;
 
     public void setup(String OS) {
@@ -37,7 +38,7 @@ public class AppiumInstance {
             }
 
             case ("IOS"): {
-                //ToDo: Setup iOS.
+                //ToDo: Can be setup with iOS.
             }
         }
     }

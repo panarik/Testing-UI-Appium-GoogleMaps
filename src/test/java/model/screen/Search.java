@@ -11,8 +11,14 @@ public class Search extends Controller {
             Locator.ID,
             "com.google.android.apps.maps:id/search_omnibox_edit_text");
 
-    public void onDisplay() {
+    /**
+     * Verify current screen is open and loaded.
+     *
+     * @return
+     */
+    public Search onDisplay() {
         verifyItem(SEARCH_EDIT_TEXT);
+        return this;
     }
 
     public Search search(String text) {
@@ -20,7 +26,12 @@ public class Search extends Controller {
         return this;
     }
 
-    public Search pikFirstSuggestion() {
+    /**
+     * Choose first suggestion from list.
+     *
+     * @return
+     */
+    public Search pickFirstSuggestion() {
         MobileItem item = new MobileItem(
                 "First suggestion",
                 Locator.XPATH,

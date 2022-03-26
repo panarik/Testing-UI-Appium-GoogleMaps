@@ -16,6 +16,10 @@ public class Map extends Controller {
             Locator.ID,
             "com.google.android.apps.maps:id/mylocation_button");
 
+    /**
+     * Verify current screen is open and loaded.
+     * @return
+     */
     public Map onDisplay() {
         verifyItem(SEARCH_FIELD);
         return this;
